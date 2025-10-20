@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Учебный дневник | Имя Студента</title>
+  <link rel="stylesheet" href="../style/styles.css">
+</head>
+<body class="page">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <h1 class="header__title">Максимов Сергей</h1>
+  </header>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item"><a href="../index.html" class="nav__link">Главная</a></li>
+      <li class="nav__item"><a href="projects.html" class="nav__link">Проекты</a></li>
+      <li class="nav__item nav__item--active"><a href="diary.html" class="nav__link">Дневник</a></li>
+      <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main">
+    <section class="diary">
+      <h2 class="skills__title">Мой учебный прогресс</h2>
+
+      <!-- === Список выполненных и текущих заданий === -->
+      <div class="profile__about">
+        <ul style="list-style: none; padding-left: 0;">
+          <li>15 дек — Верстка макета сайта ✓</li>
+          <li>10 дек — JavaScript основы ✓</li>
+          <li>05 дек — Работа с формами <em>in progress</em></li>
+          <li>01 дек — Адаптивный дизайн <em>in progress</em></li>
+        </ul>
+      </div>
+
+      <!-- === Прогресс-бар курсов === -->
+      <div class="skills">
+        <h3 class="skills__title">Текущие курсы</h3>
+
+        <div class="skills__list" style="flex-direction: column; gap: 1rem;">
+          <div>
+            <p>Веб-разработка — 90%</p>
+            <div style="background:#ddd; border-radius:5px; overflow:hidden;">
+              <div style="background:#2ecc71; width:90%; height:15px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <p>JavaScript — 70%</p>
+            <div style="background:#ddd; border-radius:5px; overflow:hidden;">
+              <div style="background:#f1c40f; width:70%; height:15px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <p>React — 50%</p>
+            <div style="background:#ddd; border-radius:5px; overflow:hidden;">
+              <div style="background:#3498db; width:50%; height:15px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- === Кнопка для добавления записи === -->
+      <div style="text-align:center; margin-top:2rem;">
+        <button class="nav__link" style="border:none; background:#3498db; padding:0.7rem 1.5rem; border-radius:5px; cursor:pointer;">
+          Добавить запись
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2025 Контакты</p>
+  </footer>
+
+</body>
+</html>

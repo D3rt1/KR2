@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Контакты — Семестровая работа</title>
+  <link rel="stylesheet" href="../style/styles.css" />
+</head>
+
+<body>
+  <div class="page" data-theme="light">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header__title">Контакты</h1>
+        <button class="button button--theme" id="themeToggle" aria-pressed="false" title="Переключить тему">🌓</button>
+      </div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="diary.html">Дневники</a></li>
+          <li class="nav__item"><a class="nav__link" href="practices.html">Практики</a></li>
+          <li class="nav__item nav__item--active"><a class="nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    
+    <main class="main">
+      <section class="contacts">
+        <h2 class="contacts__title">Свяжитесь с нами</h2>
+
+        <div class="contacts__list">
+          <div class="contact-item">
+            <h3 class="contact-item__title">Электронная почта</h3>
+            <p class="contact-item__value">mazespin@haas.com</p>
+          </div>
+
+          <div class="contact-item">
+            <h3 class="contact-item__title">Физический адрес</h3>
+            <p class="contact-item__value">Москва, Проспект Вернадского 78с4</p>
+          </div>
+
+          <div class="contact-item">
+            <h3 class="contact-item__title">Телефон</h3>
+            <p class="contact-item__value">+7 (900) 243 90-99</p>
+          </div>
+
+          <div class="contact-item">
+            <h3 class="contact-item__title">Время работы</h3>
+            <p class="contact-item__value">Пн: 9:00–10:00</p>
+          </div>
+
+          <div class="contact-item">
+            <h3 class="contact-item__title">Социальные сети</h3>
+            <p class="contact-item__value">VK, Telegram, WhatsApp</p>
+          </div>
+        </div>
+
+        <button class="button button--accent contacts__button" id="contactOpen">Связаться с нами</button>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p class="footer__text">© 2025 Максимов С.В. — ЭФБО-18-24</p>
+    </footer>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО -->
+  <dialog class="modal" id="contactModal">
+    <div class="modal__header">
+      <h2 class="modal__title">Форма обратной связи</h2>
+    </div>
+    <div class="modal__body">
+      <form class="form" id="feedbackForm" method="dialog">
+        <div class="form__group">
+          <label for="name" class="form__label">Имя <span class="form__required">*</span></label>
+          <input type="text" id="name" name="name" class="form__input" required placeholder="Введите ваше имя" />
+        </div>
+
+        <div class="form__group">
+          <label for="phone" class="form__label">Телефон <span class="form__required">*</span></label>
+          <input type="tel" id="phone" name="phone" class="form__input" required placeholder="+7 (XXX) XXX-XX-XX" />
+        </div>
+
+        <div class="form__group">
+          <label for="email" class="form__label">Электронная почта <span class="form__required">*</span></label>
+          <input type="email" id="email" name="email" class="form__input" required placeholder="example@mail.ru" />
+        </div>
+
+        <div class="form__group">
+          <label for="category" class="form__label">Категория обращения <span class="form__required">*</span></label>
+          <select id="category" name="category" class="form__select" required>
+            <option value="">Выберите категорию</option>
+            <option value="technical">Техническая поддержка</option>
+            <option value="commercial">Коммерческое предложение</option>
+            <option value="cooperation">Сотрудничество</option>
+            <option value="complaint">Жалоба</option>
+            <option value="suggestion">Предложение</option>
+            <option value="other">Другое</option>
+          </select>
+        </div>
+
+        <div class="form__group">
+          <label for="message" class="form__label">Текст обращения <span class="form__required">*</span></label>
+          <textarea id="message" name="message" class="form__textarea" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
+        </div>
+
+        <div class="modal__actions">
+          <button type="button" class="button button--secondary" id="contactCancel">Отмена</button>
+          <button type="button" class="button button--primary" id="contactSubmit">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <script src="../js/script.js"></script>
+  <script>
+    const modal = document.getElementById('contactModal');
+    const openBtn = document.getElementById('contactOpen');
+    const cancelBtn = document.getElementById('contactCancel');
+    const submitBtn = document.getElementById('contactSubmit');
+    const form = document.getElementById('feedbackForm');
+
+    openBtn.addEventListener('click', () => modal.showModal());
+    cancelBtn.addEventListener('click', () => modal.close());
+
+    submitBtn.addEventListener('click', () => {
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      console.log('Форма отправлена:', data);
+
+      alert('Спасибо! Ваше обращение отправлено.');
+      modal.close();
+      form.reset();
+    });
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.close();
+    });
+  </script>
+</body>
+</html>
